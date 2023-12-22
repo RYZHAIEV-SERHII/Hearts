@@ -4,7 +4,7 @@
 # № код повинен бути структурований за допомогою конструкції if name == "__main__":,
 # всі аргументи і значення що функція повертає повинні бути типізовані, функція має рядок документації
 
-def string_to_symbols_dict(text: str) -> dict:
+def string_to_symbols_dict(text: str) -> dict[str: float]:
     """
 Function to convert text to dictionary in which keys are symbols and values are chances to meet symbol
 in the given text.

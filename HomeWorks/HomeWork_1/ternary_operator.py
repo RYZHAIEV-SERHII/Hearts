@@ -5,7 +5,7 @@
 # якщо x > y - друкуємо x - y,
 # якщо x == 0 та y == 0 друкуємо "game over"
 
-def ternary_operation(x: int, y: int):
+def ternary_operation(x: [int | float], y: [int | float]) -> [int | float | str]:
     """
 Function to implement following logic with ternary operator:
 if x < y: print x + y
@@ -13,8 +13,8 @@ if x > y: print x - y
 if x == y: print 0
 if x == 0 and y == 0: print "game over"
 
-    :param x: int number to compare
-    :param y: int number to compare
+    :param x: int or float number to compare
+    :param y: int or float number to compare
     """
     try:
         print(
