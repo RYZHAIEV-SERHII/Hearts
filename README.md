@@ -4,7 +4,7 @@
 
 ---
 
-# **HEARTS GAME**
+# ♡ **HEARTS GAME** ♡
 
 ---
 
