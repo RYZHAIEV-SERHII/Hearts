@@ -16,11 +16,40 @@ in the given text.
     return result
 
 
-if __name__ == "__main__":
-    text = input("Please enter your text!\n")
-    print(string_to_symbols_dict(text))
+# Tests
+import unittest
 
-    # example:
-    # text = "Hello World!"
+
+class TestStringToSymbolsDict(unittest.TestCase):
+    def test_empty_string(self):
+        result = string_to_symbols_dict('')
+        assert result == {}
+
+    def test_single_letter(self):
+        result = string_to_symbols_dict('a')
+        assert result == {'a': 100.0}
+
+    def test_word_with_repeated_letters(self):
+        result = string_to_symbols_dict('hello')
+        expected = {'h': 20.0, 'e': 20.0, 'l': 40.0, 'o': 20.0}
+        assert result == expected
+
+    def test_mixed_case(self):
+        result = string_to_symbols_dict('AbCDabcD')
+        expected = {'a': 25.0, 'b': 25.0, 'c': 25.0, 'd': 25.0}
+        assert result == expected
+
+    def test_sentence_with_whitespace(self):
+        result = string_to_symbols_dict('The quick brown fox jumps over the lazy dog.')
+        expected = {'t': 4.55, 'h': 4.55, 'e': 6.82, ' ': 18.18, 'q': 2.27, 'u': 4.55, 'i': 2.27, 'c': 2.27, 'k': 2.27,
+                    'b': 2.27, 'r': 4.55, 'o': 9.09, 'w': 2.27, 'n': 2.27, 'f': 2.27, 'x': 2.27, 'j': 2.27, 'm': 2.27,
+                    'p': 2.27, 's': 2.27, 'v': 2.27, 'l': 2.27, 'a': 2.27, 'z': 2.27, 'y': 2.27, 'd': 2.27, 'g': 2.27,
+                    '.': 2.27}
+        assert result == expected
+
+
+if __name__ == "__main__":
+    # text = input("Please enter your text!\n")
     # print(string_to_symbols_dict(text))
-    # result = {'h': 8.33, 'e': 8.33, 'l': 25.0, 'o': 16.67, ' ': 8.33, 'w': 8.33, 'r': 8.33, 'd': 8.33, '!': 8.33}
+
+    unittest.main(verbosity=2)
