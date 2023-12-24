@@ -5,23 +5,21 @@
 # якщо x > y - друкуємо x - y,
 # якщо x == 0 та y == 0 друкуємо "game over"
 
+
 def ternary_operation(x: [int | float], y: [int | float]) -> [int | float | str]:
     """
-Function to implement following logic with ternary operator:
-if x < y: return x + y
-if x > y: return x - y
-if x == y: return 0
-if x == 0 and y == 0: return "game over"
+    Function to implement following logic with ternary operator:
+    if x < y: return x + y
+    if x > y: return x - y
+    if x == y: return 0
+    if x == 0 and y == 0: return "game over"
 
-    :param x: int or float number to compare
-    :param y: int or float number to compare
+        :param x: int or float number to compare
+        :param y: int or float number to compare
     """
     try:
         return (
-            "game over" if x == 0 == y else
-            x + y if x < y else
-            0 if x == y else
-            x - y
+            "game over" if x == 0 == y else x + y if x < y else 0 if x == y else x - y
         )
 
         # another solution (shorter but not so readable):
