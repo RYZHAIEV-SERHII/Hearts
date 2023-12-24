@@ -21,7 +21,7 @@ class Author:
         return f"{self.first_name} {self.last_name} ({self.year_of_birth})"
 
     def __repr__(self) -> str:
-        return f"Author({self.first_name}, {self.last_name}, {self.year_of_birth})"
+        return f"Author('{self.first_name}', '{self.last_name}', {self.year_of_birth})"
 
     def __eq__(self, other) -> bool:
         if not isinstance(other, Author):
@@ -47,7 +47,7 @@ class Genre:
         return f"{self.name} - {self.description}"
 
     def __repr__(self) -> str:
-        return f"Genre({self.name}, {self.description})"
+        return f"Genre('{self.name}', '{self.description}')"
 
     def __eq__(self, other) -> bool:
         if not isinstance(other, Genre):
@@ -93,8 +93,8 @@ class Book:
 
     def __repr__(self) -> str:
         return (
-            f"Book({self.title}, {self.description}, {self.language}, {self.authors}, "
-            f"{self.genres}, {self.year_of_publication}, {self.isbn})"
+            f"Book('{self.title}', '{self.description}', '{self.language}', {self.authors}, "
+            f"{self.genres}, {self.year_of_publication}, '{self.isbn}')"
         )
 
     def __eq__(self, other) -> bool:
