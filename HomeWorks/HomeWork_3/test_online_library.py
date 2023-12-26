@@ -188,6 +188,47 @@ class TestBook(unittest.TestCase):
         self.assertEqual(book1, book2)
         self.assertNotEqual(book1, book3)
 
+    def test_book_age(self):
+        author1 = Author("John", "Doe", 1980)
+        author2 = Author("John", "Doe", 1980)
+        genre1 = Genre(
+            "Fiction", "Books that tell stories created from the author's imagination."
+        )
+        genre2 = Genre(
+            "Fiction", "Books that tell stories created from the author's imagination."
+        )
+        book1 = Book(
+            "Sample Book",
+            "A sample book description",
+            "English",
+            [author1],
+            [genre1],
+            2022,
+            "978-3-16-148410-0",
+        )
+        book2 = Book(
+            "Sample Book",
+            "Another description",
+            "English",
+            [author2],
+            [genre2],
+            2012,
+            "978-3-16-148410-0",
+        )
+        book3 = Book(
+            "Different Book",
+            "A different book description",
+            "English",
+            [author1],
+            [genre1],
+            2000,
+            "978-3-16-148410-1",
+        )
+
+        self.assertEqual(book1.age(), 1)
+        self.assertEqual(book2.age(), 11)
+        self.assertEqual(book3.age(), 23)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

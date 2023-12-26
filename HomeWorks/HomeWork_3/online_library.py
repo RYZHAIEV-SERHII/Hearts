@@ -101,3 +101,9 @@ class Book:
         if not isinstance(other, Book):
             return False
         return self.title == other.title and self.authors == other.authors
+
+    def age(self):
+        from datetime import datetime
+
+        present = datetime.now()
+        return present.year - self.year_of_publication
