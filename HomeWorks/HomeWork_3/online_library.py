@@ -59,30 +59,30 @@ class Book:
     def __init__(
         self,
         title: str,
-        description: str,
         language: str,
-        authors: list[Author],
-        genres: list[Genre],
         year_of_publication: int,
-        isbn: str,
+        *authors,
+        description: str = "",
+        isbn: str = "",
+        genres: list[Genre] = None,
     ):
         """
         Book instance has the following information about it:
-                :param title: Name of the book
-                :param description: Description of the book
-                :param language: Language in which the book is published
-                :param authors: List of authors
+                :param title: Name of the book (mandatory)
+                :param language: Language in which the book is published (mandatory)
+                :param year_of_publication: Year in which the book was published (mandatory)
+                :param authors: List of authors (positionals arguments)
+                :param description: Description of the book (optional, default="")
+                :param isbn: (International Standard Book Number) Book identifier (optional, default="")
                 :param genres: List of genres
-                :param year_of_publication: Year in which the book was published
-                :param isbn: (International Standard Book Number) Book identifier
         """
         self.title = title
-        self.description = description
         self.language = language
-        self.authors = authors
-        self.genres = genres
         self.year_of_publication = year_of_publication
+        self.authors = authors
+        self.description = description
         self.isbn = isbn
+        self.genres = genres if genres is not None else []
 
     def __str__(self) -> str:
         authors_str = ", ".join(str(author) for author in self.authors)
