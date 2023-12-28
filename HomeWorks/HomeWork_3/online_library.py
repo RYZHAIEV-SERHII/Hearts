@@ -63,7 +63,7 @@ class Book:
         title: str,
         language: str,
         year_of_publication: int,
-        *authors: [Author],
+        *authors: tuple[Author],
         description: str = "",
         isbn: str = "",
         genres: list[Genre] = None,
