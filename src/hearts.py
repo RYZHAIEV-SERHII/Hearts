@@ -28,10 +28,16 @@ class Card:
         return 0
 
     def __eq__(self, other: "Card") -> bool:
-        return self.suit == other.suit and self.rank == other.rank
+        try:
+            return self.suit == other.suit and self.rank == other.rank
+        except not isinstance(other, Card):
+            raise TypeError("Object to compare with must be a Card class")
 
     def __lt__(self, other: "Card") -> bool:
-        return self.value < other.value
+        try:
+            return self.value < other.value
+        except not isinstance(other, Card):
+            raise TypeError("Object to compare with must be a Card class")
 
 
 class Deck:
